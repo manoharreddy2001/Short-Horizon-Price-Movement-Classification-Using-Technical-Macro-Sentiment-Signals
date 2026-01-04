@@ -1,186 +1,51 @@
-Budget Overrun Prediction in Construction Projects using Machine Learning
-Project Overview
+# IBM Stock Trend-Regime Prediction using Machine Learning
 
-Budget overruns remain a critical challenge in construction projects, often leading to financial losses, project delays, and reduced stakeholder confidence. Traditional cost estimation methods rely heavily on expert judgement and static assumptions, which limits their ability to capture complex, non-linear relationships between project characteristics and costs.
+This repository contains the source code and notebooks for an MSc Data Science project focused on short-horizon stock trend classification using historical market data for IBM.
 
-This project applies machine learning techniques to predict budget overruns in construction projects using real-world regulatory data. The objective is to support early cost-risk identification and enable data-driven decision-making in construction project management.
+The project formulates stock price prediction as a supervised classification problem, where market conditions are classified into uptrend and downtrend regimes rather than forecasting exact future prices. This approach improves stability and interpretability when modelling noisy financial time-series data.
 
-🎯 Objectives
+# The workflow follows industry best practices and includes:
 
-Formulate budget overrun prediction as a supervised classification problem
+Data collection and preprocessing of historical OHLCV stock data
 
-Perform robust data preprocessing and feature engineering
+Feature engineering using technical indicators, momentum, and volume-based features
 
-Train and compare multiple machine learning models
+Time-aware train–validation–test splitting to prevent information leakage
 
-Identify the most effective model for predicting budget overruns
+Implementation and comparison of multiple machine learning models
 
-Analyse the contribution of different feature groups to model performance
+Hyperparameter tuning and performance evaluation using standard classification metrics
 
-🗂 Dataset
+Feature importance analysis to assess the contribution of different feature groups
 
-Source: Gujarat Real Estate Regulatory Authority (RERA), India
+# Models Implemented
 
-Access Link:
-https://www.kaggle.com/datasets/ethon0426/gujarat-real-estate-project-registered-2017-2022
+Logistic Regression (baseline linear model)
 
-Records: 14,507 construction projects
+Random Forest Classifier (ensemble bagging approach)
 
-Features: 44 attributes (categorical, numerical, administrative)
+XGBoost Classifier (gradient boosting method)
 
-Dataset Highlights
+# Evaluation Metrics
 
-Project characteristics (type, promoter, redevelopment status)
+Models are evaluated using Accuracy, Precision, Recall, and F1-score, with particular emphasis on Recall and F1-score for reliable trend-regime identification.
 
-Cost-related variables (estimated cost, received amount, land cost)
+# Tools & Technologies
 
-Area and scale metrics (built-up area, carpet area, land area)
+Python (Pandas, NumPy, Scikit-learn, XGBoost)
 
-Regulatory and administrative project information
+Jupyter Notebooks
 
-The dataset is publicly available, collected for regulatory transparency, and contains no personal or sensitive data.
+Matplotlib & Seaborn for visualisation
 
-🧠 Problem Formulation
+# Project Structure
 
-Task: Binary classification
+The repository is organised into clearly defined folders for data, notebooks, source code, trained models, and reports to ensure reproducibility and clarity.
 
-Target Variable: budget_overrun
+# Objective
 
-1 → Project incurred cost exceeds estimated cost
+The primary objective of this project is to assess the effectiveness of machine learning models in identifying short-term market trends and to analyse which types of features contribute most to predictive performance.
 
-0 → Project remains within budget
+# Disclaimer
 
-This formulation enables the application of machine learning models to predict cost-risk outcomes rather than exact cost values.
-
-⚙️ Methodology
-1️⃣ Data Preprocessing
-
-Data cleaning and formatting
-
-Handling missing values introduced by rolling calculations
-
-Categorical encoding
-
-Feature scaling using standardisation
-
-Time-aware train–validation–test split
-
-2️⃣ Feature Engineering
-
-Cost and financial indicators
-
-Area and scale-related features
-
-Project characteristic variables
-
-Removal of non-informative administrative fields
-
-3️⃣ Machine Learning Models
-
-The following classification models were implemented and evaluated:
-
-Logistic Regression
-
-K-Nearest Neighbours (KNN)
-
-Decision Tree
-
-Neural Network
-
-Gradient Boosting Classifier
-
-4️⃣ Evaluation Metrics
-
-Models were evaluated using:
-
-Accuracy
-
-Precision
-
-Recall
-
-F1-score
-
-🏆 Key Results
-
-All machine learning models performed better than a random baseline
-
-Gradient Boosting Classifier achieved the strongest overall performance
-
-Cost-related, area-based, and scale features were the most influential predictors
-
-Results confirm that machine learning can effectively capture budget overrun risk patterns
-
-📈 Technologies Used
-
-Programming Language: Python
-
-Libraries:
-
-Pandas, NumPy
-
-Scikit-learn
-
-Matplotlib, Seaborn
-
-Environment: Jupyter Notebook
-
-📁 Repository Structure
-├── data/
-│   └── gujarat_rera_projects.csv
-├── notebooks/
-│   ├── 01_data_preprocessing.ipynb
-│   ├── 02_feature_engineering.ipynb
-│   ├── 03_model_training.ipynb
-│   └── 04_model_evaluation.ipynb
-├── results/
-│   ├── evaluation_metrics.csv
-│   └── feature_importance.png
-├── README.md
-└── requirements.txt
-
-🚀 How to Run the Project
-
-Clone the repository:
-
-git clone https://github.com/your-username/budget-overrun-prediction.git
-
-
-Install dependencies:
-
-pip install -r requirements.txt
-
-
-Run the notebooks in order:
-
-01_data_preprocessing.ipynb
-
-02_feature_engineering.ipynb
-
-03_model_training.ipynb
-
-04_model_evaluation.ipynb
-
-⚠️ Limitations
-
-Analysis is limited to a single geographic region (Gujarat, India)
-
-Does not include macroeconomic or sentiment-based variables
-
-Transaction costs and real-world execution constraints are not modelled
-
-🔮 Future Work
-
-Extend the framework to multiple regions and countries
-
-Integrate macroeconomic and market indicators
-
-Incorporate text-based sentiment analysis from news sources
-
-Apply advanced deep learning models such as LSTM
-
-Perform cost-sensitive learning and backtesting
-
-📜 Ethical Considerations
-
-The dataset is publicly available and contains no personal or sensitive information. All analysis complies with ethical research practices and data protection principles.
+This project is intended for academic and research purposes only and does not constitute financial or investment advice.
